@@ -13,7 +13,7 @@
     <footer class="card-footer">
       <a href="#" class="card-footer-item">Edit</a>
       <a
-          @click.prevent="handleDeleteClicked"
+          @click.prevent="storeNotes.deleteNote(note.id)"
           class="card-footer-item"
           href="#"
       >
@@ -28,6 +28,7 @@
   imports
 */
 import { computed } from 'vue'
+import {useStoreNotes} from "../../stores/storeNotes";
 /*
   props
 */
@@ -40,7 +41,7 @@ const props = defineProps({
 /*
   emits
 */
-const emit = defineEmits(['deleteClicked'])
+// const emit = defineEmits(['deleteClicked'])
 /*
   character length
 */
@@ -52,7 +53,13 @@ const characterLength = computed(() => {
 /*
   handle delete clicked
 */
-const handleDeleteClicked = () => {
-  emit('deleteClicked', props.note.id)
-}
+// const handleDeleteClicked = () => {
+ // emit('deleteClicked', props.note.id)
+//}
+
+/*
+store
+ */
+const storeNotes = useStoreNotes()
+
 </script>
