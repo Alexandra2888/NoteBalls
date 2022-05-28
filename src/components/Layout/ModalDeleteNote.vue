@@ -31,11 +31,6 @@
           Delete
         </button>
       </footer>
-      <ModalDeleteNote
-          v-if="ModalDeleteNote"
-          v-model="modals.deleteNote"
-          :noteId="note.id"
-      />
     </div>
   </div>
 </template>
@@ -47,7 +42,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import { useStoreNotes } from '../../stores/storeNotes'
-import ModalDeleteNote from "../Layout/ModalDeleteNote";
+
 /*
   props
 */
