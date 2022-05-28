@@ -7,7 +7,7 @@
     <div class="container is-max-desktop px-2">
       <div class="navbar-brand">
         <div class="navbar-item is-size-4 is-family-monospace">
-          NoteBalls
+          Noteballs
         </div>
 
         <a
@@ -32,6 +32,7 @@
       >
         <div class="navbar-end">
           <RouterLink
+              @click="showMobileNav = false"
               to="/"
               class="navbar-item"
               active-class="is-active"
@@ -39,6 +40,7 @@
             Notes
           </RouterLink>
           <RouterLink
+              @click="showMobileNav = false"
               to="/stats"
               class="navbar-item"
               active-class="is-active"
@@ -52,13 +54,12 @@
 </template>
 
 <script setup>
-/*
-  imports
-*/
+//imports
+
 import { ref } from 'vue'
-/*
-  mobile nav
-*/
+
+//  mobile nav
+
 const showMobileNav = ref(false)
 </script>
 

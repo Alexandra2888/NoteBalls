@@ -11,7 +11,13 @@
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#" class="card-footer-item">Edit</a>
+      <RouterLink
+          :to="`/editNote/${ note.id }`"
+          class="card-footer-item"
+          href="#"
+      >
+        Edit
+      </RouterLink>
       <a
           @click.prevent="storeNotes.deleteNote(note.id)"
           class="card-footer-item"
@@ -24,42 +30,30 @@
 </template>
 
 <script setup>
-/*
-  imports
-*/
+
+ // imports
+
 import { computed } from 'vue'
-import {useStoreNotes} from "../../stores/storeNotes";
-/*
-  props
-*/
+import { useStoreNotes } from '../stores/storeNotes'
+
+ // props
+
 const props = defineProps({
   note: {
     type: Object,
     required: true
   }
 })
-/*
-  emits
-*/
-// const emit = defineEmits(['deleteClicked'])
-/*
-  character length
-*/
+
+//  store
+
+const storeNotes = useStoreNotes()
+
+//  character length
+
 const characterLength = computed(() => {
   let length = props.note.content.length
   let description = length > 1 ? 'characters' : 'character'
   return `${ length } ${ description }`
 })
-/*
-  handle delete clicked
-*/
-// const handleDeleteClicked = () => {
- // emit('deleteClicked', props.note.id)
-//}
-
-/*
-store
- */
-const storeNotes = useStoreNotes()
-
 </script>
