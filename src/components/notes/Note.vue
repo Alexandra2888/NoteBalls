@@ -34,7 +34,7 @@
  // imports
 
 import { computed } from 'vue'
-import { useStoreNotes } from '../stores/storeNotes'
+import { useStoreNotes } from '../../stores/storeNotes'
 
  // props
 
