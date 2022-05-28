@@ -32,7 +32,7 @@
 */
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import AddEditNote from '../components/Notes/AddEditNote.vue'
+import AddEditNote from '../components/notes/AddEditNote.vue'
 import { useStoreNotes } from '../stores/storeNotes'
 
 // router
