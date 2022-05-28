@@ -55,7 +55,7 @@
   imports
 */
 import { ref } from 'vue'
-import Note from '../components/Notes/Note.vue'
+import Note from '../components/notes/Note.vue'
 import AddEditNote from '../components/Notes/AddEditNote.vue'
 import { useStoreNotes } from '../stores/storeNotes'
 import { useWatchCharacters } from "../use/useWatchCharacters";
