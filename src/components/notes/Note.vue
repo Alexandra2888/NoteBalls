@@ -47,7 +47,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import { useStoreNotes } from '../../stores/storeNotes'
-import ModalDeleteNote from "../Layout/ModalDeleteNote";
+import ModalDeleteNote from "../../components/Layout/ModalDeleteNote.vue";
 /*
   props
 */
