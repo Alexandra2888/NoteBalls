@@ -20,7 +20,7 @@
     </table>
     <input type="text"
            class="input"
-           placeholder="Do you love Noteballs?"
+           placeholder="Do you like Noteballs?"
            v-autofocus
            v-model="loveNoteballs"
     >
