@@ -1,42 +1,36 @@
 <template>
-  <div class="modal is-active p-2">
-    <div class="modal-background"></div>
-    <div
-        class="modal-card"
-        ref="modalCardRef"
-    >
-      <header class="modal-card-head">
-        <p class="modal-card-title">Delete Note?</p>
-        <button
-            @click="closeModal"
-            class="delete"
-            aria-label="close"
-        >
-        </button>
-      </header>
-      <section class="modal-card-body">
-        Are you sure you want to delete this note?
-      </section>
-      <footer class="modal-card-foot is-justify-content-flex-end">
-        <button
-            @click="closeModal"
-            class="button"
-        >
-          Cancel
-        </button>
-        <button
-            @click="storeNotes.deleteNote(noteId)"
-            class="button is-danger"
-        >
-          Delete
-        </button>
-      </footer>
-      <ModalDeleteNote
-          v-if="ModalDeleteNote"
-          v-model="modals.deleteNote"
-          :noteId="note.id"
-      />
+  <div
+      class="card mb-4"
+  >
+    <div class="card-content">
+      <div class="content">
+        {{ note.content }}
+        <div class="has-text-right has-text-grey-light mt-2">
+          <small>{{ characterLength }}</small>
+        </div>
+      </div>
     </div>
+    <footer class="card-footer">
+      <RouterLink
+          :to="`/editNote/${ note.id }`"
+          class="card-footer-item"
+          href="#"
+      >
+        Edit
+      </RouterLink>
+      <a
+          @click.prevent="modals.deleteNote = true"
+          class="card-footer-item"
+          href="#"
+      >
+        Delete
+      </a>
+    </footer>
+    <ModalDeleteNote
+        v-if="modals.deleteNote"
+        v-model="modals.deleteNote"
+        :noteId="note.id"
+    />
   </div>
 </template>
 
@@ -44,52 +38,34 @@
 /*
   imports
 */
-import { ref, onMounted, onUnmounted } from 'vue'
-import { onClickOutside } from '@vueuse/core'
-import { useStoreNotes } from '../../stores/storeNotes'
-import ModalDeleteNote from "../../components/Layout/ModalDeleteNote.vue";
+import { computed, reactive } from 'vue'
+import ModalDeleteNote from '@/components/Notes/ModalDeleteNote.vue'
+import { useStoreNotes } from '@/stores/storeNotes'
 /*
   props
 */
 const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false
-  },
-  noteId: {
-    type: String,
+  note: {
+    type: Object,
     required: true
   }
 })
-/*
-  emits
-*/
-const emit = defineEmits(['update:modelValue'])
 /*
   store
 */
 const storeNotes = useStoreNotes()
 /*
-  close modal
+  character length
 */
-const closeModal = () => {
-  emit('update:modelValue', false)
-}
-/*
-  click outside to close
-*/
-const modalCardRef = ref(null)
-onClickOutside(modalCardRef, closeModal)
-/*
-  keyboard control
-*/
-const handleKeyboard = e => {
-  if (e.key === 'Escape') closeModal()
-}
-onMounted(() => {
-  document.addEventListener('keyup', handleKeyboard)
+const characterLength = computed(() => {
+  let length = props.note.content.length
+  let description = length > 1 ? 'characters' : 'character'
+  return `${ length } ${ description }`
 })
-onUnmounted(() => {
-  document.removeEventListener('keyup', handleKeyboard)
+/*
+  modals
+*/
+const modals = reactive({
+  deleteNote: false
 })
 </script>
