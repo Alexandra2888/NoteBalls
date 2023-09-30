@@ -32,5 +32,6 @@ npm run build
 ```
 
 
-![Uploading iPhone 12 Pro-1696091771645.jpeg…]()
 
+
+![iPhone 12 Pro-1696091771645](https://github.com/Alexandra2888/NoteBalls/assets/76844097/c708bc27-a1c3-45af-87b8-d214f5c89913)
