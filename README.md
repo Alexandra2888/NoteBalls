@@ -26,6 +26,11 @@ npm run dev
 
 ### Compile and Minify for Production
 
-```sh
+```sh![iPhone 12 Pro-1696091771645](https://github.com/Alexandra2888/NoteBalls/assets/76844097/92ed6ff9-a826-4482-9f7c-b254f1abf1fd)
+
 npm run build
 ```
+
+
+![Uploading iPhone 12 Pro-1696091771645.jpeg…]()
+
